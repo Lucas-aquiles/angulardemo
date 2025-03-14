@@ -7,19 +7,18 @@ import { PokemonService } from './pokemon.service';
 
 describe('PokemonService', () => {
   let service: PokemonService;
-  let httpMock: HttpTestingController; // Controlador de solicitudes HTTP simuladas
-
+  let httpMock: HttpTestingController;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule], // Importa el módulo para simular las peticiones HTTP
+      imports: [HttpClientTestingModule],
       providers: [PokemonService],
     });
     service = TestBed.inject(PokemonService);
-    httpMock = TestBed.inject(HttpTestingController); // Inyecta el controlador HTTP
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
-    httpMock.verify(); // Verifica que no haya peticiones pendientes
+    httpMock.verify();
   });
 
   it('should be created', () => {
@@ -32,16 +31,14 @@ describe('PokemonService', () => {
       { name: 'Charmander', image: 'url_de_imagen' },
     ];
 
-    // Llamamos al método que hace la solicitud
     service.getPokemons().subscribe((pokemons) => {
       expect(pokemons.length).toBe(2);
       expect(pokemons).toEqual(mockPokemons);
     });
 
-    // Simulamos la respuesta de la API
     const req = httpMock.expectOne('http://localhost:3000/pokemon');
     expect(req.request.method).toBe('GET');
-    req.flush(mockPokemons); // Enviamos la respuesta simulada
+    req.flush(mockPokemons);
   });
 
   it('should handle error when API fails', () => {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'; // ❗ Importa HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 
 interface Pokemon {
   name: string;

@@ -1,44 +1,35 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { PokemonRenderComponent } from './components/pokemonrender/pokemonrender.component';
 import { PokemonService } from './services/pokemon.service';
 import { of } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
 
-class ActivatedRouteMock {
-  // Aquí puedes simular las propiedades necesarias para tus pruebas
-  snapshot = { data: {} };
-  paramMap = of({ get: (key: string) => null }); // Simula la lectura de parámetros de la ruta
-}
-
-describe('AppComponent', () => {
-  let fixture: ComponentFixture<AppComponent>;
-  let component: AppComponent;
+describe('PokemonRenderComponent', () => {
+  let fixture: ComponentFixture<PokemonRenderComponent>;
+  let component: PokemonRenderComponent;
   let pokemonService: PokemonService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [AppComponent, HttpClientModule], // Asegúrate de importar el componente
+      imports: [PokemonRenderComponent, HttpClientModule],
       providers: [
         {
           provide: PokemonService,
           useValue: {
-            getPokemons: () => of([{ name: 'Pikachu', image: 'pikachu.png' }]), // Simulamos el servicio
+            getPokemons: () => of([{ name: 'Pikachu', image: 'pikachu.png' }]),
           },
-        },
-        {
-          provide: ActivatedRoute, // Proporcionamos el mock de ActivatedRoute
-          useClass: ActivatedRouteMock,
         },
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(PokemonRenderComponent);
     component = fixture.componentInstance;
     pokemonService = TestBed.inject(PokemonService);
+
+    fixture.detectChanges();
   });
 
-  it('should create the app', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 

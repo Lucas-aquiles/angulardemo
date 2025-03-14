@@ -11,7 +11,7 @@ interface Pokemon {
   providedIn: 'root',
 })
 export class PokemonService {
-  private apiUrl = 'http://localhost:3000/pokemon'; // Tu backend NestJS
+  private apiUrl = 'http://localhost:3000/pokemon';
 
   constructor(private http: HttpClient) {}
 

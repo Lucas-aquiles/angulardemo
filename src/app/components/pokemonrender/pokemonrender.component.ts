@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { HttpClientModule } from '@angular/common/http'; // ❗ Importa HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 
 interface Pokemon {
   name: string;
@@ -15,7 +15,7 @@ interface Pokemon {
   templateUrl: './pokemonrender.component.html',
   styleUrls: ['./pokemonrender.component.css'],
 })
-export class PokemonrenderComponent implements OnInit {
+export class PokemonRenderComponent implements OnInit {
   pokemons: Pokemon[] = [];
 
   constructor(private pokemonService: PokemonService) {}
