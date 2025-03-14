@@ -1,0 +1,4 @@
+nav a {
+    display: block;  /* Hace que cada enlace ocupe toda la línea */
+    margin-bottom: 10px; /* Espacio entre los enlaces */
+  }
