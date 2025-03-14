@@ -1,4 +1,15 @@
 nav a {
-    display: block;  /* Hace que cada enlace ocupe toda la línea */
-    margin-bottom: 10px; /* Espacio entre los enlaces */
+    display: block; 
+    margin-bottom: 10px; 
   }
+
+
+  .container {
+    text-align: center;
+  }
+  
+ 
+  
+
+  
+  

@@ -1,1 +1,9 @@
-<p>pokemonrender works!</p>
+<div class="container">
+  <h1>Poke Demo</h1>
+  <div class="pokemon-list">
+    <div class="pokemon-card" *ngFor="let pokemon of pokemons">
+      <h3>{{ pokemon.name | titlecase }}</h3>
+      <img [src]="pokemon.image" [alt]="pokemon.name" />
+    </div>
+  </div>
+</div>

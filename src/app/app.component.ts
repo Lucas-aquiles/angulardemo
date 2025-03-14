@@ -1,22 +1,28 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'; // ❗ Importa HttpClientModule
+
+interface Pokemon {
+  name: string;
+  image: string;
+}
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink], // Importa RouterOutlet y RouterLink
-
+  imports: [RouterOutlet, RouterLink, CommonModule, HttpClientModule],
   templateUrl: './app.component.html',
-
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  shouldDisable: boolean = false;
-  title = 'demoluqueti';
-  subtitle = 'vamos';
-  logoSrc = '/assets/logo.png';
+  pokemons: Pokemon[] = [];
 
+  shouldDisable: boolean = false;
+  title = 'Demo Luqueti';
+  logoSrc = '/assets/logo.png';
   isSubscribed: boolean = false;
+  isOnBodyRoute = false;
 
   onSubscribeClick(data: any) {
     console.log(data);

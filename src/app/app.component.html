@@ -1,10 +1,8 @@
 <div class="container">
   <nav>
     <a routerLink="/home">Home</a>
-    <br />
-    <a routerLink="/body">Body</a>
+    <a routerLink="/body">Pokemon</a>
   </nav>
-  <router-outlet></router-outlet>
 
   <h1>{{ title }}</h1>
   <img src="{{ logoSrc }}" width="250" height="220" />
@@ -13,3 +11,4 @@
     {{ isSubscribed ? "Unsubscribe" : "Subscribe" }}
   </button>
 </div>
+<router-outlet></router-outlet>
